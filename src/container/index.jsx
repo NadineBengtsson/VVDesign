@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect} from 'react';
 import ProductCard from './ProductCard/index';
+
 
 const product = [
     {id:1, name: 'Hogar completo', description: 'diseño completo para todos o varios espacios de una casa', price:'$', image:'./public/assets/hogar.jpg'},
@@ -20,13 +21,33 @@ const product = [
 ];
 
 const Products =({greeting, product}) => {
-
+    const [carrito, setCarrito] = useState ({product});
     console.log(product);
+
+    useEffect(() => {
+        console.log('se monto el componente');
+        return () => {
+            console.log('se esta por morir')
+        }
+    }, [])
+
+    console.log("se esta por renderizar");
+
+    if(carrito.length == 0){
+        return (
+            <h1>El carrito no tiene productos</h1>
+        );
+    };
 
     return (
         <> 
             <h2 className={greeting}>Tienda</h2>
             <ProductCard />
+            <button className="suma" onClick={(Stock) => setCarrito(stock + 1)} />
+            <button className="resta" onClick={(Stock) => setCarrito(stock - 1)} />
+            <p>{carrito}</p>
+            <button>Agregar al carrito</button>
+            <button onClick= {() => {setCarrito([...carrito, {name: diseno}])}}> Agregar al Carrito </button>
         </>   
     );
 }
