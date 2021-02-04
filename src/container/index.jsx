@@ -1,55 +1,47 @@
 import React, { useState, useEffect} from 'react';
+import { ItemCount } from '../components/ItemCount/index';
 import ProductCard from './ProductCard/index';
+//import Product from './Product-List/index';
+
+//API - const [datos, setDatos] = useState(0)
+    //useEffect = (() => {});
+        //fetch()
+          //}.then(result => {
+             //return result.json()})
+             //then (value => {
+                // console.log(value);
+                //setDatos
+             //}).catch(error => {console.log(error)});
+ //});   
 
 
-const product = [
-    {id:1, name: 'Hogar completo', description: 'diseño completo para todos o varios espacios de una casa', price:'$', image:'./public/assets/hogar.jpg'},
-    {id:2, name: 'Oficina completo', description: 'diseño completo para todos o varios espacios de una oficina', price:'$', image:'\public\assets\living2.jpg'},
-    {id:3, name: 'Exteriores', description: 'diseño de jardines, galerias y ambientes al aire libre', price:'$', image:'./public/assets/exteriores2.jpg'},
-    {id:4, name: 'Cocina', description: 'diseño para una cocina funcional, ordenada y elegante', price:'$', image:'./public/assets/cocina2.jpg'},
-    {id:5, name: 'Living y recibidores', description: 'diseño para crear un espacio donde compartir con amigos y familia momentos únicos', price:'$', image:'./public/assets/entrada2.jpg'},
-    {id:6, name: 'Baños', description: 'diseño para baños y toilettes, incluyendo remodelaciones, items de decoración y ambiente', price:'$', image:'./public/assets/bano.jpg'},
-    {id:7, name: 'Lugares de Ocio', description: 'diseño para una lugares de ocio y entretenimiento, gimnasios, playrooms, bibliotecas, etc', price:'$', image: './public/assets/ocio2.jpg'},
-    {id:8, name: 'Home Office y consultorios', description: 'diseño para crear un espacio de oficina que sea práctico y cómodo para trabajar', price:'$', image: './public/assets/reloj.jpg'},
-    {id:9, name: 'Armarios y Vestidores', description: 'diseño para hacer fácil el guardado y cuidado de la ropa y que se luzcan tus mejores prendas', price:'$', image: './public/assets/consola.jpg'},
-    {id:10, name: 'Habitaciones', description: 'diseño para cuartos en suite, cuartos de niños  y de bebés, de adolescentes, adultos y para invitados', price:'$', image: './public/assets/cuarto2.jpg'},
-    {id:11, name: 'Cortinas', description: 'colocación de cortinas de todos los tipos y estilos', price:'$', image: './public/assets/cortina.jpg'},
-    {id:12, name: 'Muebles a medida', description: 'diseño de muebles a medida para que entren en espacios determinados', price:'$', image: './public/assets/entrada.jpg'},
-    {id:13, name: 'Blanquería (sabanas, toallas, y más)', description: 'venta de productos únicos de blanquería para tus camas, cunas, baños y más', price:'$', image: './public/assets/velas.jpg'},
-    {id:14, name: 'Ceramica, vajilla, y objetos únicos de decoración', description: 'venta de productos únicos de decoración, ceramica y vallija de primera calidad para tus espacios', price:'$', image:'./public/assets/hogar2.jpg'},
-    {id:15, name: 'Iluminacion de ambientes', description: 'generando espacios con luces calidas-frias, bien iluminados', price:'$', image: './public/assets/iluminacion.jpg'}
-];
+//carrito
 
-const Products =({greeting, product}) => {
-    const [carrito, setCarrito] = useState ({product});
-    console.log(product);
+const Products =({greeting}, stock, carrito, onAdd, onSubstract) => {
 
-    useEffect(() => {
-        console.log('se monto el componente');
-        return () => {
-            console.log('se esta por morir')
+    const [carrito, setCarrito] = useState()
+    
+    const onAdd= (carrito, stock) => {
+        if (carrito < stock){
+            setCarrito(carrito + 1); alert("Producto agregado al carrito");} else {
+                alert("No hay stock")
+            }};
+
+    const onSubstract = () => {
+        if (carrito > 1 ) {
+            setCarrito(carrito - 1)
+        } else {
+            alert("Opcion no disponible")
         }
-    }, [])
-
-    console.log("se esta por renderizar");
-
-    if(carrito.length == 0){
-        return (
-            <h1>El carrito no tiene productos</h1>
-        );
     };
-
+    
     return (
         <> 
-            <h2 className={greeting}>Tienda</h2>
-            <ProductCard />
-            <button className="suma" onClick={(Stock) => setCarrito(stock + 1)} />
-            <button className="resta" onClick={(Stock) => setCarrito(stock - 1)} />
-            <p>{carrito}</p>
-            <button>Agregar al carrito</button>
-            <button onClick= {() => {setCarrito([...carrito, {name: diseno}])}}> Agregar al Carrito </button>
-        </>   
-    );
-}
+            <div className={greeting} />
+            <h2> Tienda </h2>
+            <ItemCount stock={12} carrito={carrito} on onAdd={onAdd}/>
+             <ProductCard />
+        </>
+    )};
 
 export default Products;
