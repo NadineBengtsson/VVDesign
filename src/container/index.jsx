@@ -20,19 +20,20 @@ import "./style.css";
 
 const Products =({greeting}, stock) => {
 
-    const [carrito, setCarrito] = useState()
+    const [contador, setContador] = useState()
     
-    const onAdd= (carrito, stock) => {
-        if (carrito < stock){
-            setCarrito(carrito + 1); alert("Producto agregado al carrito");
+    const onAdd= () => {
+        if (contador < stock){
+            setContador(contador + 1); 
+            console.log("Producto agregado al carrito");
         } 
         else {
-                alert("No hay stock")
+                console.log("No hay stock")
         }};
 
-    const onSubstract=(carrito) => {
-        if (carrito > 1 ) {
-            setCarrito(carrito - 1)
+    const onSubstract=() => {
+        if (contador > 1 ) {
+            setContador(contador - 1);
         } else {
             console.log("Opcion no disponible")
         }
@@ -42,7 +43,7 @@ const Products =({greeting}, stock) => {
         <> 
             <div className={greeting} />
             <h2> Tienda </h2>
-            <ItemCount stock={12} carrito={0} on onAdd={onAdd} on onSubstract={onSubstract}/>
+            <ItemCount stock={12} contador={0} on onAdd={onAdd} on onSubstract={onSubstract}/>
              <ProductCard />
         </>
     )};
