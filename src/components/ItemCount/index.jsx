@@ -1,9 +1,9 @@
 import "./style.css";
 
-export const ItemCount = ({stock, carrito, onAdd, onSubstract, setCarrito, product, contador}) => {
+const ItemCount = ({stock, carrito, onAdd, onSubstract, setCarrito, product, contador}) => {
     return (
         <>
-            <button className="resta" onClick={() => {onSubstract()}}> - </button>
+            <button className="resta" onClick={() => {onSubstract(stock)}}> - </button>
             <b> {contador} </b>
             <p> Tenemos en el {stock} en stock</p>
             <button className="suma" onClick={ () => {onAdd()}}> + </button>
@@ -11,3 +11,5 @@ export const ItemCount = ({stock, carrito, onAdd, onSubstract, setCarrito, produ
         </>
     );
 }
+
+export default ItemCount;

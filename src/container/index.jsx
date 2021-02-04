@@ -1,5 +1,5 @@
 import React, { useState} from 'react';
-import { ItemCount } from '../components/ItemCount/index';
+import ItemCount from "../components/ItemCount/index";
 import ProductCard from './ProductCard/index';
 import "./style.css";
 //import Product from './Product-List/index';
@@ -20,18 +20,18 @@ import "./style.css";
 
 const Products =({greeting}, stock) => {
 
-    const [contador, setContador] = useState()
+    const [contador, setContador] = useState(1)
     
-    const onAdd= () => {
+    const onAdd= (stock) => {
+        
         if (contador < stock){
-            setContador(contador + 1); 
-            console.log("Producto agregado al carrito");
-        } 
+            setContador(contador + 1);
+            console.log("Producto agregado al carrito");}
         else {
-                console.log("No hay stock")
+            console.log("No hay stock")
         }};
 
-    const onSubstract=() => {
+    const onSubstract=(stock) => {
         if (contador > 1 ) {
             setContador(contador - 1);
         } else {
@@ -43,9 +43,9 @@ const Products =({greeting}, stock) => {
         <> 
             <div className={greeting} />
             <h2> Tienda </h2>
-            <ItemCount stock={12} contador={0} on onAdd={onAdd} on onSubstract={onSubstract}/>
+            <ItemCount stock={12} contador={contador} on onAdd={onAdd} on onSubstract={onSubstract}/>
              <ProductCard />
         </>
-    )};
+)};
 
 export default Products;
