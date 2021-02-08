@@ -3,9 +3,10 @@ import './App.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBarComponent from './components/navbar/index';
 import BannerComponent from './components/banner/index';
-import Products from './container/index';
 import FooterComponent from './components/footer/index';
 import logo from './logo.jpg';
+import ItemListContainer from './container/ItemListContainer/index';
+import GetItems from './container/ItemDetailContainer/index';
 
 const App = () => {
   return (
@@ -23,14 +24,9 @@ const App = () => {
       
         <NavBarComponent />
       </header>
-
-      <section>
         <BannerComponent />
-      </section>
-      
-      <section>
-        <Products greeting={"Nuestros Servicios"}/>
-      </section>
+        <ItemListContainer greeting={"Nuestros Servicios"}/>
+        <GetItems />
       
       <footer>
         <FooterComponent />
@@ -38,7 +34,6 @@ const App = () => {
     </>
   );
 }
-
 
 export default App;
 

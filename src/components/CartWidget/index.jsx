@@ -1,10 +1,10 @@
 import React from 'react';
-import {ShoppingCart} from '@material-ui/icons';
+import Cart from './Cart';
 
-const CartWidget =() =>{
+const CartWidget =(carrito) =>{
     return (
         <>
-            <ShoppingCart />
+            <Cart /> 
         </>);
 }
 

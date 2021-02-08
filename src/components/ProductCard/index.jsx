@@ -1,7 +1,6 @@
 import React from 'react';
 import { Card, CardMedia, CardContent, IconButton, CardActionArea, Typography, CardActions} from '@material-ui/core';
 import { AddShoppingCart } from '@material-ui/icons';
-import Product from './components/ProductList/index';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
@@ -14,23 +13,23 @@ const useStyles = makeStyles({
 });
 
 
-const ProductCard = ({Product}) => {
+const ProductCard = ({product}) => {
     const classes = useStyles();
 
     return (
         <>
             <Card className={classes.root}>
                 <CardActionArea> 
-                    <CardMedia className={classes.media} image={Product.image} title="image of product"/>
+                    <CardMedia className={classes.media} image={product.image} title="image of product"/>
                     <CardContent>
                         <Typography variant="h4" gutterBottom>
-                            {Product.name}
+                            {product.name}
                         </Typography>
                         <Typography variant="body2" color="textSecondary">
-                            {Product.description}
+                            {product.description}
                         </Typography>
                         <Typography variant="h5" color="primary">
-                            {Product.price}
+                            {product.price}
                         </Typography>
                     </CardContent>
                 </CardActionArea>
