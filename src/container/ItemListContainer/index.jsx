@@ -31,19 +31,18 @@ import "./style.css";
 
 //carrito
 
-const ItemListContainer =({greeting}, stock) => {
+const ItemListContainer =({greeting}, {stock}) => {
     const [contador, setContador] = React.useState(1); 
     
-    const onAdd= (stock) => {
+    const onAdd= () => {
         
         if (contador < stock){
-            setContador(contador + 1);
-            console.log("Producto agregado al carrito");}
+            setContador(contador + 1);}
         else {
             console.log("No hay stock")
         }};
 
-    const onSubstract=(stock) => {
+    const onSubstract=() => {
         if (contador > 1 ) {
             setContador(contador - 1);
         } else {
