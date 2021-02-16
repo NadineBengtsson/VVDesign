@@ -11,21 +11,31 @@ const NavBarComponent = () => {
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
-                  <Nav.Link href="#home">Inicio</Nav.Link>
+                  <Nav.Link>
+                    <li>
+                      <Link to={'/'}>Inicio</Link>
+                    </li></Nav.Link>
                   <NavDropdown title="Nosotros" id="basic-nav-dropdown">
                       <NavDropdown.Item href="#action/3.1">Nuestros Proyectos</NavDropdown.Item>
                       <NavDropdown.Item href="#action/3.2">Nuestro Estilo</NavDropdown.Item> 
                       <NavDropdown.Item href="#action/3.3">Medios</NavDropdown.Item>
                   </NavDropdown>
                   <NavDropdown title="Servicios" id="basic-nav-dropdown">
-                    <NavDropdown.Item href="#action/4.1">Decoración</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/4.2">Ambientación</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/4.3">Iluminación</NavDropdown.Item>
+                    <li>
+                      <Link to={'/servicios'}>Servicios</Link>
+                    </li>
+                      <NavDropdown.Item href="#action/4.1">Decoración</NavDropdown.Item>
+                      <NavDropdown.Item href="#action/4.2">Ambientación</NavDropdown.Item>
+                      <NavDropdown.Item href="#action/4.3">Iluminación</NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="#action/3.4">Nuestro proceso</NavDropdown.Item>
                   </NavDropdown>
-                  <Nav.Link href="#link"> 
-                    <CartWidget />
+                  <Nav.Link>
+                    <li>
+                      <Link to={'/cart'}>Tienda
+                        <CartWidget />
+                      </Link> 
+                    </li>
                   </Nav.Link>
                   <Nav.Link href="#link">Contacto</Nav.Link>
                 </Nav>
