@@ -25,14 +25,22 @@ const App = () => {
         >
           Diseños Veronica Valdevilt
         </a>
-        <NavBarComponent />
+        <BrowserRouter>
+          <NavBarComponent categories={categories}/>
+            <Switch>
+              <Route exact path="/">
+                <Home />
+              </Route>
+              <Route path="/cart">
+                <Cart />
+              </Route>
+              <Route path="/servicios">
+                <ItemListContainer greeting={"Nuestros Servicios"}/>
+              </Route>
+            </Switch>
+        </BrowserRouter>
+         
       </header>
-        <BannerComponent />
-        <ItemListContainer greeting={"Nuestros Servicios"}/>
-        <GetItems />
-      <button>
-        
-      </button>
       <footer>
         <FooterComponent />
       </footer>
