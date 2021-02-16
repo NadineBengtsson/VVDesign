@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, CardMedia, CardContent, IconButton, CardActionArea, Typography, CardActions} from '@material-ui/core';
 import { AddShoppingCart } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/core/styles';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
     root: {
@@ -15,6 +16,27 @@ const useStyles = makeStyles({
 
 const ProductCard = ({product}) => {
     const classes = useStyles();
+
+    const [irCarrito, SetIrCarrito] = useState(false);
+
+    const onAdd= () => {
+        
+        if (contador < stock){
+            setContador(contador + 1)
+            SetIrCarrito(true)
+        }
+
+        else {
+            console.log("No hay stock")
+        }};
+
+    const onSubstract=() => {
+        if (contador > 1 ) {
+            setContador(contador - 1);
+        } else {
+            console.log("Opcion no disponible")
+        }
+    };
 
     return (
         <>
@@ -31,6 +53,15 @@ const ProductCard = ({product}) => {
                         <Typography variant="h5" color="primary">
                             {product.price}
                         </Typography>
+                        <Link to={'/product/${product.id}'}>
+                        <button> Ver mas </button>
+                        </Link>
+
+                        <div>
+                            {irCarrito ? <Link to='./'>Ir al Carrito</Link> : 
+                            <ItemCount onAdd={onAdd} onSubstract={onSubstract}/>}
+                        </div>
+
                     </CardContent>
                 </CardActionArea>
                 <CardActions>

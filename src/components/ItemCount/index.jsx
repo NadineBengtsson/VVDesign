@@ -1,18 +1,20 @@
 import "./style.css";
+import { Tooltip } from '@material-ui/core';
 
 
 const ItemCount = ({stock}, {carrito}, {onAdd}, {onSubstract}, {setCarrito}, {contador}) => {
 
-    const setCarrito = () => {
-        console.log(carrito)
-    }; 
 
     return (
         <>
             <button onClick={() => {onSubstract(stock)}}> - </button>
             <b> {contador} </b>
             <p> Tenemos en el {stock} en stock</p>
-            <button onClick={ () => {onAdd()}}> + </button>
+            <div>
+                 <Tooltip interactive title="Add">
+                    <Button onClick={ () => {onAdd()}}>+</Button>
+                </Tooltip>
+            </div>
             <button onClick= {() => {setCarrito([...carrito])}}> Agregar al carrito </button>
         </>
     );

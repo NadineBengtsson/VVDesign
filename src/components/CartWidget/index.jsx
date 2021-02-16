@@ -5,6 +5,7 @@ const CartWidget =(carrito) =>{
     return (
         <>
             <Cart /> 
+            
         </>);
 }
 

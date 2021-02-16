@@ -28,10 +28,14 @@ import "./style.css";
             // }).catch(error => {console.log(error)});
     //})};
 
+//
+
+
 
 //carrito
 
 const ItemListContainer =({greeting}, {stock}) => {
+
     const [contador, setContador] = React.useState(1); 
     
     const onAdd= () => {
@@ -53,6 +57,9 @@ const ItemListContainer =({greeting}, {stock}) => {
         return (
             <> 
                 <h2> {greeting} </h2>
+                <div>
+                    {product.length < 1 ? <h1> Cargando...</h1> : <ProductList product={product} />}
+                </div>
                 <ItemCount contador={contador} onAdd={onAdd} onSubstract={onSubstract}/>
             </>
     )};
