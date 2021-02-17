@@ -3,6 +3,7 @@ import { Card, CardMedia, CardContent, IconButton, CardActionArea, Typography, C
 import { AddShoppingCart } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
+import ItemCount from '../ItemCount';
 
 const useStyles = makeStyles({
     root: {
@@ -53,12 +54,12 @@ const ProductCard = ({product}) => {
                         <Typography variant="h5" color="primary">
                             {product.price}
                         </Typography>
-                        <Link to={'/product/${product.id}'}>
+                        <Link to={'/servicios/${product.id}'}>
                         <button> Ver mas </button>
                         </Link>
 
                         <div>
-                            {irCarrito ? <Link to='./'>Ir al Carrito</Link> : 
+                            {irCarrito ? <Link to='/'>Ir al Carrito</Link> : 
                             <ItemCount onAdd={onAdd} onSubstract={onSubstract}/>}
                         </div>
 

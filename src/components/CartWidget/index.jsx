@@ -4,8 +4,7 @@ import Cart from './Cart';
 const CartWidget =(carrito) =>{
     return (
         <>
-            <Cart /> 
-            
+            <Cart />
         </>);
 }
 

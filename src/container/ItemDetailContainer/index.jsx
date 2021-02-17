@@ -11,7 +11,7 @@ const GetItems = () => {
     const {id} = useParams()
     console.log(id);
 
-    setIsLoading(true); 
+    //setIsLoading(true); 
 
     React.useEffect(() => {
         const myPromise = new Promise ((resolve, reject)=> {

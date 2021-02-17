@@ -8,6 +8,7 @@ import FooterComponent from './components/footer/index';
 import logo from './logo.jpg';
 import ItemListContainer from './container/ItemListContainer/index';
 import GetItems from './container/ItemDetailContainer/index';
+import Home from './index';
 
 
 //router ./product/:id
@@ -26,7 +27,7 @@ const App = () => {
           Diseños Veronica Valdevilt
         </a>
         <BrowserRouter>
-          <NavBarComponent categories={categories}/>
+          <NavBarComponent/>
             <Switch>
               <Route exact path="/">
                 <Home />
@@ -34,7 +35,7 @@ const App = () => {
               <Route path="/cart">
                 <Cart />
               </Route>
-              <Route path="/servicios">
+              <Route path="/servicios/:id">
                 <ItemListContainer greeting={"Nuestros Servicios"}/>
               </Route>
             </Switch>

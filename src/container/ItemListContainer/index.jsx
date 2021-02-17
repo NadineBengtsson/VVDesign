@@ -34,7 +34,11 @@ import "./style.css";
 
 //carrito
 
-const ItemListContainer =({greeting}, {stock}) => {
+const ItemListContainer =({greeting}) => {
+
+    const stock =() => {
+        let stock = 12;
+    }
 
     const [contador, setContador] = React.useState(1); 
     
@@ -60,7 +64,7 @@ const ItemListContainer =({greeting}, {stock}) => {
                 <div>
                     {product.length < 1 ? <h1> Cargando...</h1> : <ProductList product={product} />}
                 </div>
-                <ItemCount contador={contador} onAdd={onAdd} onSubstract={onSubstract}/>
+                <ItemCount stock={12} contador={contador} onAdd={onAdd} onSubstract={onSubstract}/>
             </>
     )};
 

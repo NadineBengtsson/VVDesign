@@ -7,12 +7,13 @@ const ItemCount = ({stock}, {carrito}, {onAdd}, {onSubstract}, {setCarrito}, {co
 
     return (
         <>
-            <button onClick={() => {onSubstract(stock)}}> - </button>
+            <button onClick={() => {onSubstract(stock)}}> - 
+            </button>
             <b> {contador} </b>
             <p> Tenemos en el {stock} en stock</p>
             <div>
                  <Tooltip interactive title="Add">
-                    <Button onClick={ () => {onAdd()}}>+</Button>
+                    <button onClick={ () => {onAdd()}}>+</button>
                 </Tooltip>
             </div>
             <button onClick= {() => {setCarrito([...carrito])}}> Agregar al carrito </button>
