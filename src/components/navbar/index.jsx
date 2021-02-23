@@ -1,4 +1,4 @@
-import {Navbar, NavDropdown, Nav, Form, FormControl, Button} from 'react-bootstrap';
+import {Navbar, NavDropdown, Nav, Form, FormControl, Button, NavLink} from 'react-bootstrap';
 import CartWidget from '../CartWidget/index';
 
 
@@ -11,7 +11,7 @@ const NavBarComponent = () => {
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
-                  <Nav.Link to={'/'}>Inicio</Nav.Link>
+                  <NavLink to={'/'}>Inicio</NavLink>
                   <NavDropdown title="Nosotros" id="basic-nav-dropdown">
                       <NavDropdown.Item href="#action/3.1">Nuestros Proyectos</NavDropdown.Item>
                       <NavDropdown.Item href="#action/3.2">Nuestro Estilo</NavDropdown.Item> 
@@ -25,10 +25,10 @@ const NavBarComponent = () => {
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="#action/3.4">Nuestro proceso</NavDropdown.Item>
                   </NavDropdown>
-                  <Nav.Link to={'/cart'}>Tienda
+                  <NavLink to={'/cart'}>Tienda
                         <CartWidget />
-                  </Nav.Link>
-                  <Nav.Link href="#link">Contacto</Nav.Link>
+                  </NavLink>
+                  <NavLink href="#link">Contacto</NavLink>
                 </Nav>
                 <Form inline>
                   <FormControl type="text" placeholder="Search" className="mr-sm-2" />

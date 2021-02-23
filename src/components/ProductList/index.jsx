@@ -2,9 +2,9 @@ import React from 'react';
 import ProductCard from '../ProductCard/index'
 
 
-const ProductList = () => {
+export const ProductList = () => {
 
-    const product = [
+    const Products = [
         {id:1, name: 'Hogar completo', description: 'diseño completo para todos o varios espacios de una casa', price:('$'+ 1000), img:'./public/assets/hogar.jpg', stock: 12}, 
         {id:2, name: 'Oficina completo', description: 'diseño completo para todos o varios espacios de una oficina', price:('$'+ 1000), img:'\public\assets\living2.jpg', stock: 12},
         {id:3, name: 'Exteriores', description: 'diseño de jardines, galerias y ambientes al aire libre', price:('$'+ 1000), img:'./public/assets/exteriores2.jpg', stock: 12},
@@ -26,12 +26,9 @@ const ProductList = () => {
     return (
         <div>
             <ul>
-                {product.map(() => {
-                    return <ProductCard key={product.id} product={product}/> 
+                {Products.map(() => {
+                    return <ProductCard key={Products.id} product={Products}/> 
                     })};
             </ul>
         </div>
 )};
-
-
-export default ProductList;
