@@ -1,5 +1,5 @@
 {
-  "name": "proyecto-vv",
+  "name": "clear",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -11,6 +11,7 @@
     "bootstrap": "^4.6.0",
     "firebase": "^8.2.9",
     "node-sass": "^4.14.1",
+    "pkg": "^4.4.9",
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.3",
     "react-dom": "^17.0.1",
@@ -42,5 +43,18 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "<h1> PROJECT VV DESIGN </h1>",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NadineBengtsson/VVDesign.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NadineBengtsson/VVDesign/issues"
+  },
+  "homepage": "https://github.com/NadineBengtsson/VVDesign#readme"
 }
