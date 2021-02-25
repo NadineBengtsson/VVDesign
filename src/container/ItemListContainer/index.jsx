@@ -44,7 +44,10 @@ const ItemListContainer =({greeting}) => {
         const Database= getFirestore();
         const itemCollection = Database.collection('Products');
 
-    itemCollection.get().then((value)=> {vale.docs.map(element => {[console.log({...element.data(), id:element.id})]})})}, [])
+    itemCollection.get().then((value) => {
+        let aux = value.docs.map(element => {return {...element.data(), id:element.id}})})}, [])
+
+    item.get().then()
 
     const stock =() => {
         let stock = 12;

@@ -15,7 +15,7 @@ export const CartState = () => {
     }; 
 
     function removeItem() {
-        return Products.filter() //quitar
+        return Products.filter((setCart) => setCart.id !== Product.id) //quitar
     };
 
     function ClearCart(Cart) {
