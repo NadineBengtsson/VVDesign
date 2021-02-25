@@ -37,8 +37,14 @@ import "./style.css";
 
 const ItemListContainer =({greeting}) => {
 
-    const { cart, setCart} = useContext(CartContext);
+    const [cart, setCart] = useContext(CartContext);
     console.log(cart);
+
+    useEffect(() => {
+        const Database= getFirestore();
+        const itemCollection = Database.collection('Products');
+
+    itemCollection.get().then((value)=> {vale.docs.map(element => {[console.log({...element.data(), id:element.id})]})})}, [])
 
     const stock =() => {
         let stock = 12;
