@@ -3,11 +3,11 @@ import ProductList from "../components/ProductList"
 export const CartState = () => {
     const [cart, setCart] = useState([])
 
-    function AddItem (Products, quantity) {
+    function AddItem (Products, contador) {
         if (IsInCart({Products.id === -1})){
             setCart({Products})
         } else {
-
+            setCart({...cart, Products,contador})
         }};
 
     function IsInCart(id){
@@ -23,7 +23,7 @@ export const CartState = () => {
     };
 
 
-    return <CartState.Provider value ={{cart, setCart}}>
+    return <CartState.Provider value ={{cart, setCart, IsInCart, removeItem, ClearCart, AddItem}}>
         {children}
     </CartState.Provider>
 }
