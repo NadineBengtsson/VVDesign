@@ -4,7 +4,7 @@ export const CartState = () => {
     const [cart, setCart] = useState([])
 
     function AddItem (Products, contador) {
-        if (IsInCart({Products.id === -1})){
+        if (IsInCart({Products:id === -1})){
             setCart({Products})
         } else {
             setCart({...cart, Products,contador})

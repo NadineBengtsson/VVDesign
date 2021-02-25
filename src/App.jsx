@@ -3,18 +3,12 @@ import './App.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import NavBarComponent from './components/navbar/index';
-import BannerComponent from './components/banner/index';
 import FooterComponent from './components/footer/index';
 import Cart from './components/CartWidget/Cart/index';
 import logo from './logo.jpg';
 import ItemListContainer from './container/ItemListContainer/index';
-import GetItems from './container/ItemDetailContainer/index';
-import Home from './index';
-import { GlobalContext } from './components/CartWidget/Cart/context/GlobalContext';
+import Home from './components/home/index'; 
 import {CartContext} from './components/CartWidget/Cart/context/CartContext';
-
-
-//router ./product/:id
 
 const App = () => {
 

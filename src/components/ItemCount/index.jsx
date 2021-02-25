@@ -2,7 +2,7 @@ import "./style.css";
 import { Tooltip } from '@material-ui/core';
 
 
-const ItemCount = ({stock}, {carrito}, {onAdd}, {onSubstract}, {setCarrito}, {contador}) => {
+const ItemCount = ({stock}, {onAdd}, {onSubstract}, {contador}) => {
 
 
     return (

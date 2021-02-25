@@ -1,5 +1,6 @@
 import * as React from 'react';
 import ItemCount from "../../components/ItemCount/index";
+import ProductList from "../../components/ProductList/index";
 import { CartContext } from '../../components/CartWidget/Cart/context/CartContext';
 import "./style.css";
 
@@ -75,10 +76,10 @@ const ItemListContainer =({greeting}) => {
             <> 
                 <h2> {greeting} </h2>
                 <div>
-                    {product.length < 1 ? <h1> Cargando...</h1> : <ProductList product={product} />}
+                    {Products.length < 1 ? <h1> Cargando...</h1> : <ProductList product={Products} />}
                 </div>
                 <ItemCount stock={12} contador={contador} onAdd={onAdd} onSubstract={onSubstract}/>
-                <button onClick={()=> {setCart([...cart, [{items:{}, quantity:2}]])}}>Agregar al carrito</button>
+                <button onClick={()=> {setCart([...cart, [{product:{Products}, quantity:2}]])}}>Agregar al carrito</button>
             </>
     )};
 
