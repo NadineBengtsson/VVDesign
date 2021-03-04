@@ -1,15 +1,49 @@
 import { useState } from "react";
 
-const CartContext = React.createContext(false)
+export const CartContext = React.createContext(false)
 
-function CartContext(){
-    const [product, setProduct] = useState([])
+export const CartProvider = ({ children }) => {
+     
+     const [cart, setCart] = useState([])
 
-    return (
-        <CartContext.Provider value={{product, setProduct}}>
-            {children}
-        </CartContext.Provider>
-    )
-};
+     const addItem = item => {
+          
+          let result = cart.filter( prod => prod.item.id!==item.item.id )
+          let match = cart.filter( prod => prod.item.id===item.item.id )
 
-export default CartContext;
+          if(!match.length) setCart( [...cart, item ] )
+
+          if(match.length){
+               const newItem = {
+                    item: item.item,
+                    quantity: item.quantity+match[0].quantity
+               }
+               setCart( [...result,  newItem ] )
+          } 
+     }
+
+     const removeItem = id => {
+          const newItems = cart.filter( prod => prod.item.id !== id )
+          setCart(newItems)
+     }
+
+     const removeAll = () => setCart([])
+
+     const isInCart = id => {
+          const newItems = cart.filter( prod => prod.item.id === id )
+          return (newItems.length===0) ? false : true
+     }
+
+     return(
+          <CartContext.Provider value={{
+               cart,
+               addItem,
+               removeItem,
+               removeAll,
+               isInCart
+          }}>
+               { children }
+          </CartContext.Provider>
+     )
+
+}

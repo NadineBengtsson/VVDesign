@@ -1,9 +1,9 @@
 import React from 'react'
-import NavBarComponent from '../components/navbar';
-import FooterComponent from '../components/footer';
-import BannerComponent from '../components/banner';
-import ProductList from '../components/ProductList';
-import ProductCard from '../components/ProductCard';
+import NavBarComponent from '../navbar';
+import FooterComponent from '../footer';
+import BannerComponent from '../banner';
+import ProductList from '../ProductList';
+import ProductCard from '../ProductCard';
 
 const Home = () => {
     return (
